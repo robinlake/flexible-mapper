@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Flexmap",
+    "version": "0.1",
+    "description": "Chrome key mapper",
+    "author": "Robin Lake",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "16": "/images/gender.png",
+        "48": "/images/gender.png",
+        "128": "/images/gender.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "/images/gender.png",
+            "48": "/images/gender.png",
+            "128": "/images/gender.png"
+        },
+        "default_title": "Flexmap",
+        "default_popup": "html/panel.html"
+    },
+    "devtools_page": "html/devtools.html"
+}
