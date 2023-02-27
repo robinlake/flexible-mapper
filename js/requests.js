@@ -1,4 +1,4 @@
-  document.getElementById('fetch_foo').onclick = () => {
+document.getElementById('fetch_foo').onclick = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript({
         target: {tabId: tabs[0].id},
@@ -16,6 +16,7 @@
   }
 
   async function fetchAndSave(route, fileType="txt"){
+    console.log("fetchAndSave")
     const routes = {
         'foo': "http://127.0.0.1:8080/foo",
         'bar': "http://127.0.0.1:8080/bar",
