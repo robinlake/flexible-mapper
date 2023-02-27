@@ -1,6 +1,5 @@
 console.log('keybindings script')
 
-
 async function copyYoutubeTimestamp() {
     let buttons = document.getElementById("top-level-buttons-computed").getElementsByTagName("button");
     let shareButton = buttons[buttons.length - 1];
@@ -13,23 +12,21 @@ async function copyYoutubeTimestamp() {
     console.log("checkbox: ", checkbox);
     
     // .children.getElementById("checkbox");
-    setTimeout(() => checkbox.click(), 500);
+    setTimeout(() => checkbox.click(), 1000);
     let copy = document.getElementById("copy-button").children[0].children[0];
     copy.click();
     let close = document.getElementById("button");
     setTimeout(() => close.click(), 500);
   }  
-
+  
 
 window.addEventListener('keypress',function(key){
     console.log(key.key)
     let keyvalue = key.key
+    if (keyvalue === "b") {
+        copyYoutubeTimestamp()
+    }
     chrome.runtime.sendMessage(null,keyvalue,(response)=>{
         console.log("Sent key value"+response)
         });
-    if (key.code === "KeyB") {
-        console.log("pressed B")
-        copyYoutubeTimestamp()
-    }
-
 })

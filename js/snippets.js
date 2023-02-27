@@ -19,12 +19,12 @@ async function copyYoutubeTimestamp() {
     setTimeout(() => close.click(), 300);
   }  
   
-  document.getElementById('youtube_timestamp').onclick = () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.scripting.executeScript({
-        target: {tabId: tabs[0].id},
-        function: copyYoutubeTimestamp
-      });
-    });
-  }
-  
+//   document.getElementById('youtube_timestamp').onclick = () => {
+//     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+//       chrome.scripting.executeScript({
+//         target: {tabId: tabs[0].id},
+//         function: copyYoutubeTimestamp
+//       });
+//     });
+//   }
+
