@@ -17,10 +17,13 @@ async function copyYoutubeTimestamp() {
     }
     console.log("checkboxWrapper: ", checkboxWrapper);
     console.log("checkbox: ", checkbox);
+    await new Promise(resolve => setTimeout(resolve, 200));
 
     checkbox.click();
+    await new Promise(resolve => setTimeout(resolve, 200));
     let copy = document.getElementById("copy-button").children[0].children[0];
     copy.click();
+    await new Promise(resolve => setTimeout(resolve, 200));
     let close = document.getElementById("button");
     close.click();
   }  
@@ -49,4 +52,31 @@ function timeStampClosure() {
 
 const timeStampListener = timeStampClosure();
 
+function toggleUIElements() {
+    let bottomBar = document.getElementsByClassName("ytp-chrome-bottom")[0];
+    let hidden = bottomBar.classList.contains("hidden");
+    let controller = document.getElementsByClassName("vsc-controller")[0];
+    bottomBar.classList.toggle("hidden");
+    controller.classList.toggle("hidden");
+  }
+
+function hideBottomBarClosure() {
+    let justPressedG = false;
+    return (key) => {
+        let keyvalue = key.key
+        if (keyvalue === "a" && justPressedG) {
+            toggleUIElements();
+            justPressedG = false;
+        }
+        if (keyvalue === "g") {
+            justPressedG = true;
+        } else {
+            justPressedG = false;
+        }
+    }
+}
+
+const hideBottomBarListener = hideBottomBarClosure();
+
 window.addEventListener('keypress', timeStampListener)
+window.addEventListener('keypress', hideBottomBarListener)
