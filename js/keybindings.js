@@ -10,23 +10,43 @@ async function copyYoutubeTimestamp() {
     console.log("checkboxWrapper: ", checkboxWrapper);
     let checkbox = document.getElementById("start-at-checkbox");
     console.log("checkbox: ", checkbox);
-    
-    // .children.getElementById("checkbox");
-    setTimeout(() => checkbox.click(), 1000);
+    while (checkbox === null || checkbox === undefined) {
+        checkboxWrapper = document.getElementById("start-at-wrapper");
+        checkbox = document.getElementById("start-at-checkbox");
+        await new Promise(resolve => setTimeout(resolve, 400));
+    }
+    console.log("checkboxWrapper: ", checkboxWrapper);
+    console.log("checkbox: ", checkbox);
+
+    checkbox.click();
     let copy = document.getElementById("copy-button").children[0].children[0];
     copy.click();
     let close = document.getElementById("button");
-    setTimeout(() => close.click(), 500);
+    close.click();
   }  
   
+function timeStampClosure() {
+    let justPressedG = false;
+    return (key) => {
+        console.log("key.key: ", key.key)
+        console.log("justPressedG: ", justPressedG)
+        let keyvalue = key.key
+        if (keyvalue === "b" && justPressedG) {
+            copyYoutubeTimestamp();
+            justPressedG = false;
+        }
+        if (keyvalue === "g") {
+            justPressedG = true;
+        } else {
+            justPressedG = false;
+        }
 
-window.addEventListener('keypress',function(key){
-    console.log(key.key)
-    let keyvalue = key.key
-    if (keyvalue === "b") {
-        copyYoutubeTimestamp()
-    }
-    chrome.runtime.sendMessage(null,keyvalue,(response)=>{
-        console.log("Sent key value"+response)
-        });
-})
+        chrome.runtime.sendMessage(null,keyvalue,(response)=>{
+            console.log("Sent key value"+response)
+            });
+        }
+};
+
+const timeStampListener = timeStampClosure();
+
+window.addEventListener('keypress', timeStampListener)
