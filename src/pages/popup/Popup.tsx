@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "@assets/img/logo.svg";
 import "@pages/popup/Popup.scss";
+import "@pages/scss/style.scss";
+import "@pages/scss/shadow.scss";
+import "@pages/scss/inject.scss";
 
 const Popup = () => {
   return (
@@ -13,7 +16,11 @@ const Popup = () => {
         </div>
         <div className="form">
           <label for="">Snippets</label>
-          <input type="button" id="youtube_timestamp" value="Get Youtube Timestamp" />
+          <input
+            type="button"
+            id="youtube_timestamp"
+            value="Get Youtube Timestamp"
+          />
           <input type="button" id="fetch_foo" value="Fetch Foo" />
           <input type="button" id="fetch_bar" value="Fetch Bar" />
         </div>
