@@ -1,11 +1,3 @@
-let video;
-
-(async () => {
-    const src = chrome.runtime.getURL("/js/videoController.js");
-    const video = await import(src);
-  })();
-
-
 async function copyYoutubeTimestamp() {
     let buttons = document.getElementById("top-level-buttons-computed").getElementsByTagName("button");
     let shareButton = buttons[buttons.length - 1];
@@ -23,18 +15,18 @@ async function copyYoutubeTimestamp() {
     }
     console.log("checkboxWrapper: ", checkboxWrapper);
     console.log("checkbox: ", checkbox);
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(resolve => setTimeout(resolve, 400));
 
     checkbox.click();
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(resolve => setTimeout(resolve, 400));
     let copy = document.getElementById("copy-button").children[0].children[0];
     copy.click();
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(resolve => setTimeout(resolve, 400));
     let close = document.getElementById("button");
     close.click();
   }  
 
-function toggleUIElements() {
+  function toggleUIElements() {
     let bottomBar = document.getElementsByClassName("ytp-chrome-bottom")[0];
     console.log('bottomBar: ', bottomBar);
     let hidden = bottomBar.classList.contains("hidden");
@@ -45,9 +37,10 @@ function toggleUIElements() {
     controller.classList.toggle("hidden");
   }
 
+
 function keypressClosure() {
     let justPressedG = false;
-    // video.initVideoController();
+    // video.initVideoControler();
     return (key) => {
         console.log('keypress closure')
         console.log("key.key: ", key.key)
@@ -69,6 +62,21 @@ function keypressClosure() {
     }
 }
 
-const keypressListener = keypressClosure();
 
-window.addEventListener('keypress', keypressListener)
+function addVideoListeners() {
+    const keypressListener = keypressClosure();
+    window.addEventListener('keypress', keypressListener)}
+
+function initVideoController() {
+    console.log('initVideoController');
+    const location = window.location.href
+    const expression = /^https?:\/\/(www\.)?youtube\.com\/.*/;
+    const regex = new RegExp(expression);
+    if (location.match(regex)) {
+        addVideoListeners();
+    }
+    console.log()
+}
+
+window.addEventListener("load", initVideoController)
+// initVideoController();

@@ -32,11 +32,24 @@
     "content_scripts": [
         {
             "matches": [
-                "https://*.youtube.com/*"
+                "https://*.youtube.com/*",
+                "https://*.com/*",
+                "<all_urls>"
             ],
             "js": [
                 "/js/keybindings.js",
-                "/js/snippets.js"
+                "/js/videoController.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "matches": [
+                "https://*.com/*"
+            ],
+            "resources": [
+                "/js/videoController.js",
+                "/js/*"
             ]
         }
     ],

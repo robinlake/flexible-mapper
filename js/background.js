@@ -1,5 +1,6 @@
 console.log('background.js')
 
+
 // async function copyYoutubeTimestamp() {
 //     let container = document.getElementById("player-theater-container");
 //     if (!container.hasFocus()) {
