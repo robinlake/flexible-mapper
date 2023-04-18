@@ -26,7 +26,7 @@
             "128": "/images/gender.png"
         },
         "default_title": "Flexmap",
-        "default_popup": "/src/html/panel.html"
+        "default_popup": "/src/html/popup.html"
     },
     "devtools_page": "/src/html/devtools.html",
     "content_scripts": [
@@ -43,8 +43,10 @@
                 "/src/js/videoController.js"
             ],
             "css": [
-                "/src/css/style.css",
-                "/src/css/videoController.css"
+                "/css/popup.css",
+                "/css/inject.css",
+                "/css/shadow.css",
+                "/css/style.css"
             ]
         }
     ],
@@ -57,7 +59,7 @@
             ],
             "resources": [
                 "/src/js/*",
-                "/src/css/*"
+                "/css/*"
             ]
         }
     ],
