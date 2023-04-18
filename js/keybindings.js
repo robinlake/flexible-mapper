@@ -3,7 +3,7 @@ console.log('keybindings script')
 async function copyYoutubeTimestamp() {
     let buttons = document.getElementById("top-level-buttons-computed").getElementsByTagName("button");
     let shareButton = buttons[buttons.length - 1];
-    console.log("buttons: ", buttons);
+    console.log("buttons keybindings: ", buttons);
     console.log("shareButton: ", shareButton);
     shareButton.click();
     let checkboxWrapper = document.getElementById("start-at-wrapper");
@@ -27,10 +27,22 @@ async function copyYoutubeTimestamp() {
     let close = document.getElementById("button");
     close.click();
   }  
-  
-function timeStampClosure() {
+
+function toggleUIElements() {
+    let bottomBar = document.getElementsByClassName("ytp-chrome-bottom")[0];
+    console.log('bottomBar: ', bottomBar);
+    let hidden = bottomBar.classList.contains("hidden");
+    console.log('hidden: ', hidden);
+    let controller = document.getElementsByClassName("vsc-controller")[0];
+    console.log('controller: ', controller);
+    bottomBar.classList.toggle("hidden");
+    controller.classList.toggle("hidden");
+  }
+
+function keypressClosure() {
     let justPressedG = false;
     return (key) => {
+        console.log('keypress closure')
         console.log("key.key: ", key.key)
         console.log("justPressedG: ", justPressedG)
         let keyvalue = key.key
@@ -38,33 +50,7 @@ function timeStampClosure() {
             copyYoutubeTimestamp();
             justPressedG = false;
         }
-        if (keyvalue === "g") {
-            justPressedG = true;
-        } else {
-            justPressedG = false;
-        }
-
-        chrome.runtime.sendMessage(null,keyvalue,(response)=>{
-            console.log("Sent key value"+response)
-            });
-        }
-};
-
-const timeStampListener = timeStampClosure();
-
-function toggleUIElements() {
-    let bottomBar = document.getElementsByClassName("ytp-chrome-bottom")[0];
-    let hidden = bottomBar.classList.contains("hidden");
-    let controller = document.getElementsByClassName("vsc-controller")[0];
-    bottomBar.classList.toggle("hidden");
-    controller.classList.toggle("hidden");
-  }
-
-function hideBottomBarClosure() {
-    let justPressedG = false;
-    return (key) => {
-        let keyvalue = key.key
-        if (keyvalue === "a" && justPressedG) {
+        if (keyvalue === "v" && justPressedG) {
             toggleUIElements();
             justPressedG = false;
         }
@@ -76,7 +62,6 @@ function hideBottomBarClosure() {
     }
 }
 
-const hideBottomBarListener = hideBottomBarClosure();
+const keypressListener = keypressClosure();
 
-window.addEventListener('keypress', timeStampListener)
-window.addEventListener('keypress', hideBottomBarListener)
+window.addEventListener('keypress', keypressListener)

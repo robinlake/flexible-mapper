@@ -21,10 +21,10 @@ console.log('background.js')
 //     copy.click();
 //     let close = document.getElementById("button");
 //     setTimeout(() => close.click(), 500);
-  }  
+//  }  
 
 chrome.runtime.onMessage.addListener((message,sender,sendResponse)=>{
-    console.log(message)
+    console.log('message: ', message)
     if (message === "b") {
         console.log("message is b")
     } else {
