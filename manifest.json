@@ -31,6 +31,7 @@
     "devtools_page": "html/devtools.html",
     "content_scripts": [
         {
+            "all_frames": true,
             "matches": [
                 "https://*.youtube.com/*",
                 "https://*.com/*",
@@ -38,17 +39,25 @@
             ],
             "js": [
                 "/js/keybindings.js",
-                "/js/youtubeController.js"
+                "/js/youtubeController.js",
+                "/js/videoController.js"
+            ],
+            "css": [
+                "/css/style.css",
+                "/css/videoController.css"
             ]
         }
     ],
     "web_accessible_resources": [
         {
             "matches": [
-                "https://*.com/*"
+                "http://*/*",
+                "https://*/*",
+                "file:///*"
             ],
             "resources": [
-                "/js/*"
+                "/js/*",
+                "/css/*"
             ]
         }
     ],
