@@ -26,9 +26,9 @@
             "128": "/images/gender.png"
         },
         "default_title": "Flexmap",
-        "default_popup": "html/panel.html"
+        "default_popup": "/src/html/panel.html"
     },
-    "devtools_page": "html/devtools.html",
+    "devtools_page": "/src/html/devtools.html",
     "content_scripts": [
         {
             "all_frames": true,
@@ -38,13 +38,13 @@
                 "<all_urls>"
             ],
             "js": [
-                "/js/keybindings.js",
-                "/js/youtubeController.js",
-                "/js/videoController.js"
+                "/src/js/keybindings.js",
+                "/src/js/youtubeController.js",
+                "/src/js/videoController.js"
             ],
             "css": [
-                "/css/style.css",
-                "/css/videoController.css"
+                "/src/css/style.css",
+                "/src/css/videoController.css"
             ]
         }
     ],
@@ -56,12 +56,12 @@
                 "file:///*"
             ],
             "resources": [
-                "/js/*",
-                "/css/*"
+                "/src/js/*",
+                "/src/css/*"
             ]
         }
     ],
     "background": {
-        "service_worker": "/js/background.js"
+        "service_worker": "/src/js/background.js"
     }
 }
