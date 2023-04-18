@@ -79,4 +79,3 @@ function initVideoController() {
 }
 
 window.addEventListener("load", initVideoController)
-// initVideoController();

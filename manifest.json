@@ -38,7 +38,7 @@
             ],
             "js": [
                 "/js/keybindings.js",
-                "/js/videoController.js"
+                "/js/youtubeController.js"
             ]
         }
     ],
@@ -48,7 +48,6 @@
                 "https://*.com/*"
             ],
             "resources": [
-                "/js/videoController.js",
                 "/js/*"
             ]
         }
