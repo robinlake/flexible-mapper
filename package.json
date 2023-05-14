@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/robinlake/flexible-mapper/issues"
   },
-  "homepage": "https://github.com/robinlake/flexible-mapper#readme"
+  "homepage": "https://github.com/robinlake/flexible-mapper#readme",
+  "devDependencies": {
+    "sass": "^1.62.1"
+  }
 }
