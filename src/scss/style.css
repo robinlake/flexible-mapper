@@ -100,6 +100,12 @@ div.legacy-video-player.has_played.vertically_center:before {
   height: 0;
 }
 
+* {
+  line-height: 1.8em;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
 :host(:hover) #controls {
   display: inline;
 }
@@ -181,14 +187,15 @@ div.legacy-video-player.has_played.vertically_center:before {
   cursor: -webkit-grabbing;
 }
 
-.flexible-mapper-container .popup-container {
+.popup-container {
   height: 400px;
 }
 
-.flexible-mapper-container :root {
+:root {
   --primary-blue: "#00B2E3";
 }
-.flexible-mapper-container body {
+
+body {
   --primary-blue: #00B2E3;
   --btn-blue: #013369;
   --dark: #212121;
@@ -197,34 +204,41 @@ div.legacy-video-player.has_played.vertically_center:before {
   --input-border-radius: 4px;
   --input-border-width: .063rem;
   --input-width: max(60%, 240px);
+  min-width: 300px;
 }
-.flexible-mapper-container .header img {
+
+.header img {
   max-height: 100px;
   max-width: 100px;
 }
-.flexible-mapper-container h1 {
+
+h1 {
   font-weight: 300;
 }
-.flexible-mapper-container h1 strong {
+
+h1 strong {
   color: var(--primary-blue);
   padding-right: 3px;
 }
-.flexible-mapper-container .header {
+
+.header {
   display: grid;
   justify-content: center;
   justify-items: center;
 }
-.flexible-mapper-container .form {
+
+.form {
   display: grid;
   justify-content: center;
   justify-items: center;
   grid-template-columns: 100%;
   padding: 10px;
 }
-.flexible-mapper-container input[type=text],
-.flexible-mapper-container input[type=email],
-.flexible-mapper-container input[type=password],
-.flexible-mapper-container select {
+
+input[type=text],
+input[type=email],
+input[type=password],
+select {
   padding: var(--input-padding);
   border-radius: var(--input-border-radius);
   outline: 0;
@@ -233,7 +247,8 @@ div.legacy-video-player.has_played.vertically_center:before {
   width: var(--input-width);
   border: var(--input-border-width) solid var(--input-border-color);
 }
-.flexible-mapper-container input[type=button] {
+
+input[type=button] {
   padding: var(--input-padding);
   margin: 0.5rem 0 0;
   outline: 0;
@@ -249,10 +264,12 @@ div.legacy-video-player.has_played.vertically_center:before {
   transition: background 0.3s ease;
   width: var(--input-width);
 }
-.flexible-mapper-container input[type=button]:hover {
+
+input[type=button]:hover {
   background: #0270e7;
 }
-.flexible-mapper-container label {
+
+label {
   display: block;
   margin: 0 0 0.5rem;
   font-weight: 700;
@@ -263,11 +280,13 @@ div.legacy-video-player.has_played.vertically_center:before {
   justify-self: left;
   padding-left: 20%;
 }
-.flexible-mapper-container .notifications {
+
+.notifications {
   display: grid;
   justify-content: center;
 }
-.flexible-mapper-container .notifications p {
+
+.notifications p {
   font-size: 1.25rem;
   font-weight: 600;
 }

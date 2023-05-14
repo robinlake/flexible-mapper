@@ -1,3 +1,9 @@
+* {
+  line-height: 1.8em;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
 :host(:hover) #controls {
   display: inline;
 }

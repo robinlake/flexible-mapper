@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass -w src/scss/ -o css/ --recursive",
+    "node-sass": "node-sass -w src/scss/ -o /css/ --recursive",
+    "sass": "sass src/scss:css ",
+    "sass-dev": "sass --watch --update --style=expanded src/scss:css",
+    "sass-prod": "sass --no-source-map --style=compressed src/scss:css",
     "dev": "node-sass -w src/scss/ -o src/css/ --recursive"
   },
   "repository": {
