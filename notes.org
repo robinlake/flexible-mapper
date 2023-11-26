@@ -1,0 +1,2 @@
+todos:
+- Add feature that captures video play time when action occurs that triggers page navigation
