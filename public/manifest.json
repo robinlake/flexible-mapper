@@ -20,7 +20,6 @@
     "default_title": "Flexmap",
     "default_popup": "/index.html"
   },
-  "devtools_page": "/html/devtools.html",
   "content_scripts": [
     {
       "all_frames": true,
@@ -38,9 +37,5 @@
       "matches": ["http://*/*", "https://*/*", "file:///*"],
       "resources": ["/js/*", "/css/*"]
     }
-  ],
-  "background": {
-    "service_worker": "/js/background.js",
-    "type": "module"
-  }
+  ]
 }
