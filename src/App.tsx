@@ -1,9 +1,9 @@
 import "./App.scss";
-import Header from "./components/Header.tsx";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="popup-container flexible-mapper-container">
+    <div className="popup-container">
       <Header />
     </div>
   );

@@ -1,4 +1,9 @@
 .popup-container {
   height: 400px;
   min-width: 300px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
 }
