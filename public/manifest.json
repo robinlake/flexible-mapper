@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Flexmap",
+  "name": "Flexmap-vite",
   "version": "0.1",
-  "description": "Chrome key mapper",
+  "description": "Chrome key mapper-vite",
   "author": "Robin Lake",
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "host_permissions": ["http://*/*", "https://*/*"],
@@ -26,9 +26,9 @@
       "all_frames": true,
       "matches": ["https://*.youtube.com/*", "https://*.com/*", "<all_urls>"],
       "js": [
-        "/src/js/keybindings.js",
-        "/src/js/youtubeController.js",
-        "/src/js/videoController.js"
+        "/js/keybindings.js",
+        "/js/youtubeController.js",
+        "/js/videoController.js"
       ],
       "css": [
         "/css/popup.css",
@@ -41,11 +41,11 @@
   "web_accessible_resources": [
     {
       "matches": ["http://*/*", "https://*/*", "file:///*"],
-      "resources": ["/src/js/*", "/css/*"]
+      "resources": ["/js/*", "/css/*"]
     }
   ],
   "background": {
-    "service_worker": "/src/js/background.js",
+    "service_worker": "/js/background.js",
     "type": "module"
   }
 }
