@@ -1,2 +1,7 @@
-todos:
+Features:
 - Add feature that captures video play time when action occurs that triggers page navigation
+  - I.e., store end timestamp so that when you come back to the video you can resume where you left off
+- Tempo/music tracking
+  - Detect music tempo or enter manually
+  - Show what bar of the song you're in
+
